@@ -4,9 +4,44 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 `tbl2.tsv`. En este laboratorio solo puede utilizar las funciones y 
 librerias de pandas para resolver las preguntas.
 """
+import glob
+import pandas as pd  # type: ignore
 
+def load_input(input_directory):
+    """Load text files in 'input_directory/'"""
+    # Lea los archivos de texto en la carpeta input/ y almacene el contenido en
+    # un DataFrame de Pandas. Cada línea del archivo de texto debe ser una
+    # entrada en el DataFrame.
+    #
+    files = glob.glob(f"{input_directory}/*")
+    dataframes = [
+        pd.read_csv(
+            files[2],
+            header=0,
+            delimiter="\t",
+            names=None,
+            index_col=None,
+        )
+    ]
 
+    dataframe = pd.concat(dataframes, ignore_index=True)
+    return dataframe
+
+def merge_column(dataframe):
+    dataframe['c5'] = dataframe['c5a'].map(str).str.cat(dataframe['c5b'].map(str), sep=':')
+    dataframe.pop('c5a')
+    dataframe.pop('c5b')
+
+    return dataframe
+
+def match_column(dataframe):
+    dataframe['c5'] = dataframe.groupby('c0')['c5'].transform(lambda x: ','.join(sorted(map(str,x))))
+
+    return dataframe.drop_duplicates(['c0','c5'],keep='first')
+
+       
 def pregunta_12():
+    
     """
     Construya una tabla que contenga `c0` y una lista separada por ','
     de los valores de la columna `c5a`  y `c5b` (unidos por ':') de la
@@ -22,3 +57,9 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
+    dataframe = load_input('files\input')
+    dataframe = merge_column(dataframe)
+    dataframe = match_column(dataframe)
+
+    return dataframe
+print(pregunta_12())
