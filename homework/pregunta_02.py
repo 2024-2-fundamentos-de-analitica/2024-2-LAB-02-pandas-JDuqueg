@@ -42,7 +42,7 @@ def pregunta_02():
     4
 
     """
-    dataframe = load_input('files\input')
+    dataframe = load_input('files/input')
     dataframe = num_rows(dataframe)
 
     return dataframe

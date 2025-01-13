@@ -52,7 +52,7 @@ def pregunta_05():
     E    9
     Name: c2, dtype: int64
     """
-    dataframe = load_input('files\input')
+    dataframe = load_input('files/input')
     dataframe = letter_max(dataframe)
 
     return dataframe

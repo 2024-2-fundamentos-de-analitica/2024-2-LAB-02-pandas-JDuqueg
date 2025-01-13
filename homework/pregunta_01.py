@@ -41,8 +41,8 @@ def pregunta_01():
     40
 
     """
-    dataframe = load_input('files\input')
+    dataframe = load_input('files/input')
     dataframe = num_rows(dataframe)
 
     return dataframe
-pregunta_01()
+print(pregunta_01())

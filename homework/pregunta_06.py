@@ -39,8 +39,7 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    dataframe = load_input('files\input')
-    #dataframe = letter_max(dataframe)
+    dataframe = load_input('files/input')
 
     return dataframe
 print(pregunta_06())

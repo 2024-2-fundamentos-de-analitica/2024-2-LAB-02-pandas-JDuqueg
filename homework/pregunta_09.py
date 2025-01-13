@@ -52,7 +52,7 @@ def pregunta_09():
     39  39  E   5  1998-01-26  1998
 
     """
-    dataframe = load_input('files\input')
+    dataframe = load_input('files/input')
     dataframe = columns_year(dataframe)
 
     return dataframe

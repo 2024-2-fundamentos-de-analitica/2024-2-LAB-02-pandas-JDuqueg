@@ -51,7 +51,7 @@ def pregunta_04():
     E    4.785714
     Name: c2, dtype: float64
     """
-    dataframe = load_input('files\input')
+    dataframe = load_input('files/input')
     dataframe = letter_mean(dataframe)
 
     return dataframe

@@ -49,7 +49,7 @@ def pregunta_07():
     E    67
     Name: c2, dtype: int64
     """
-    dataframe = load_input('files\input')
+    dataframe = load_input('files/input')
     dataframe = letter_sum(dataframe)
 
     return dataframe

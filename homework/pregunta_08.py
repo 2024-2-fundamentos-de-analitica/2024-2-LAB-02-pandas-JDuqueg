@@ -52,7 +52,7 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    dataframe = load_input('files\input')
+    dataframe = load_input('files/input')
     dataframe = columns_sum(dataframe)
 
     return dataframe

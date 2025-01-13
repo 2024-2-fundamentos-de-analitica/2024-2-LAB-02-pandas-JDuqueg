@@ -48,7 +48,7 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
-    dataframe = load_input('files\input')
+    dataframe = load_input('files/input')
     dataframe = letter_count(dataframe, 'c1')
 
     return dataframe
